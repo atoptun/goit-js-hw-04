@@ -1,9 +1,5 @@
 function isEnoughCapacity(products, containerSize) {
-  let productsSize = 0;
-  for (const key in products) {
-    if (!Object.hasOwn(products, key)) continue;
-    productsSize += products[key];
-  }
+  let productsSize = Object.values(products).reduce((s, p) => s + p, 0);
   return productsSize <= containerSize;
 }
 
